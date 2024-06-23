@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 
 public class RegistrationPage {
 
@@ -66,57 +65,57 @@ public class RegistrationPage {
     public void fillFirstName(String fName) {
         Waits.getExplicitWait(driver).until(ExpectedConditions.elementToBeClickable(firstNameField));
         firstNameField.sendKeys(fName);
-        Assert.assertTrue(firstNameField.getAttribute("value").contains(fName), "Entered First Name and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, firstNameField, fName, 10);
     }
 
     public void fillLastName(String lName) {
         lastNameField.sendKeys(lName);
-        Assert.assertTrue(lastNameField.getAttribute("value").contains(lName), "Entered Last Name and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, lastNameField, lName, 10);
     }
 
     public void fillAddress(String address) {
         addressField.sendKeys(address);
-        Assert.assertTrue(addressField.getAttribute("value").contains(address), "Entered address and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, addressField, address, 10);
     }
 
     public void fillCity(String city) {
         cityField.sendKeys(city);
-        Assert.assertTrue(cityField.getAttribute("value").contains(city), "Entered city and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, cityField, city, 10);
     }
 
     public void fillState(String state) {
         stateField.sendKeys(state);
-        Assert.assertTrue(stateField.getAttribute("value").contains(state), "Entered State and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, stateField, state, 10);
     }
 
     public void fillzipCode(String zCode) {
         zipCodeField.sendKeys(zCode);
-        Assert.assertTrue(zipCodeField.getAttribute("value").contains(zCode), "Entered Zip code and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, zipCodeField, zCode, 10);
     }
 
     public void fillPhone(int phone) {
         phoneField.sendKeys(String.valueOf(phone));
-        Assert.assertTrue(phoneField.getAttribute("value").contains(String.valueOf(phone)), "Entered Phone and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, phoneField, String.valueOf(phone), 10);
     }
 
     public void fillSsn(String snn) {
         snnField.sendKeys(snn);
-        Assert.assertTrue(snnField.getAttribute("value").contains(snn), "Entered Snn and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, snnField, snn, 10);
     }
 
     public void fillUsername(String username) {
         userNameField.sendKeys(username);
-        Assert.assertTrue(userNameField.getAttribute("value").contains(username), "Entered Username and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, userNameField, username, 10);
     }
 
     public void fillPassword(String password) {
         passwordField.sendKeys(password);
-        Assert.assertTrue(passwordField.getAttribute("value").contains(password), "Entered Password and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, passwordField, password, 10);
     }
 
     public void fillConfirm(String confirm) {
         confirmPassField.sendKeys(confirm);
-        Assert.assertTrue(confirmPassField.getAttribute("value").contains(confirm), "Entered Confirm password and displayed text do not match");
+        Waits.waitForTextToBePresentInElementValue(driver, confirmPassField, confirm, 10);
     }
 
     public void clickRegisterButton() {
