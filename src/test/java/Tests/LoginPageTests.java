@@ -1,13 +1,13 @@
 package Tests;
 
+import Helpers.BaseClass;
 import Helpers.PageObjectsManager;
-import Helpers.TestNgHooks;
 import Pages.AccountPage;
 import Pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginPageTests extends TestNgHooks {
+public class LoginPageTests extends BaseClass {
 
     LoginPage loginPage;
     AccountPage accountPage;

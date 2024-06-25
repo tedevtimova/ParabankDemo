@@ -1,14 +1,14 @@
 package Tests;
 
+import Helpers.BaseClass;
 import Helpers.PageObjectsManager;
-import Helpers.TestNgHooks;
 import Pages.AccountPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class AccountPageTests extends TestNgHooks {
+public class AccountPageTests extends BaseClass {
 
     AccountPage accountPage;
     public static String accountId;
@@ -28,10 +28,9 @@ public class AccountPageTests extends TestNgHooks {
     }
 
     @Test
-    public String getFirstAccountId() {
+    public void getFirstAccountId() {
         System.out.println("getFirstAccountId is running");
         accountId = accountPage.getInitialAccountNumber();
-        return accountId;
     }
 
     @Test

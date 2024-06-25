@@ -2,11 +2,22 @@ package Helpers;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
-public class TestNgHooks {
+import java.io.IOException;
 
+public class BaseClass {
+
+    public TestParameters testParameters;
     public static WebDriver driver;
+
+    @BeforeClass
+
+    public void setUp() throws IOException {
+        testParameters = TestParameters.loadFromFile("C:\\Users\\TeodoraEvtimova\\Desktop\\parameters.json");
+    }
+
 
     @BeforeSuite
 
@@ -21,3 +32,4 @@ public class TestNgHooks {
         BrowserFactory.tearDownBrowser();
     }
 }
+

@@ -1,27 +1,24 @@
 package Tests;
 
-import Pages.BillPayPage;
+import Helpers.BaseClass;
+import Pages.BillPayApi;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
-
-public class BillPayApiTest extends BillPayPage {
+public class BillPayApiTest extends BaseClass {
 
     String accountId;
 
     @Test
-    @Parameters({"username", "password"})
 
-    public void billPay(String username, String password) {
+    public void billPay() {
         accountId = AccountPageTests.accountId;
         System.out.println("Initial accountId: " + accountId);
+        RestAssured.baseURI = "http://localhost:8081/parabank";
 
-        // The constructor of BillPayBase is called here
-        Response response = executeBillPay(username, password, accountId);
+        Response response = new BillPayApi().executeBillPay(testParameters.username, testParameters.password, accountId);
 
         String payeeName = response.path("payeeName");
         int amount = response.path("amount");

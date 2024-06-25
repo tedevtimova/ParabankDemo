@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" allow-return-values="true">
-    <parameter name="firstName" value="Teddy"/>
-    <parameter name="lastName" value="Evtimova"/>
-    <parameter name="address" value="10, Test street"/>
-    <parameter name="city" value="Varna"/>
-    <parameter name="state" value="Varna District"/>
-    <parameter name="zipCode" value="9000"/>
-    <parameter name="phone" value="0847990876"/>
-    <parameter name="ssn" value="1239000"/>
-    <parameter name="username" value="tedevtimova336"/>
-    <parameter name="password" value="123456"/>
-    <parameter name="confirmPasswordOne" value="12345"/>
-    <parameter name="confirmPasswordTwo" value="123456"/>
     <test verbose="2" preserve-order="true" name="Registration and Account actions Tests">
         <classes>
             <class name="Tests.RegistrationPageTests">
