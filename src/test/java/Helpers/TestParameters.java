@@ -1,9 +1,12 @@
 package Helpers;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class TestParameters {
 
@@ -20,9 +23,11 @@ public class TestParameters {
     public String confirmPasswordOne;
     public String confirmPasswordTwo;
 
-    public static TestParameters loadFromFile(String filePath) throws IOException {
+   public static List<TestParameters> loadFromFile(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-
-        return objectMapper.readValue(new File(filePath), TestParameters.class);
+        JsonNode rootNode = objectMapper.readTree(new File(filePath));
+        JsonNode parameterSetsNode = rootNode.get("parameterSets");
+        return objectMapper.convertValue(parameterSetsNode, new TypeReference<List<TestParameters>>(){});
     }
+
 }

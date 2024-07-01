@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" allow-return-values="true">
+<suite name="All Test Suite - Set 2" allow-return-values="true">
+    <parameter name="dataSet" value="1"/>
     <test verbose="2" preserve-order="true" name="Registration and Account actions Tests">
         <classes>
             <class name="Tests.RegistrationPageTests">
-            <methods>
-                <include name="clickRegistrationLink"/>
-                <include name="testFillInForm"/>
-                <include name="fillNotMatchingPasswordsAndRegister"/>
-                <include name="fillMatchingPasswordsAndRegister"/>
-                <include name="fillNotMatchingPasswordsAndRegister"/>
+                <methods>
+                    <include name="clickRegistrationLink"/>
+                    <include name="testFillInForm"/>
+                    <include name="fillNotMatchingPasswordsAndRegister"/>
+                    <include name="fillMatchingPasswordsAndRegister"/>
+                    <include name="fillNotMatchingPasswordsAndRegister"/>
                 </methods>
             </class>
             <class name="Tests.AccountPageTests">

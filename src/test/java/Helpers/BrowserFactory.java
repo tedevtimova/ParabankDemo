@@ -2,6 +2,7 @@ package Helpers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -10,8 +11,12 @@ public class BrowserFactory {
     public static WebDriver driver;
 
     public static WebDriver CreateDriver(String browserName) {
+
         if (browserName.equalsIgnoreCase("chrome")) {
-            driver = new ChromeDriver();
+            System.setProperty("webdriver.chrome.driver", "C://Program Files//Selenium jars and drivers//Drivers//chromedriver.exe");
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            driver = new ChromeDriver(options);
         } else if (browserName.equalsIgnoreCase("mozilla")) {
             driver = new FirefoxDriver();
         } else if (browserName.equalsIgnoreCase("edge")) {
@@ -26,7 +31,7 @@ public class BrowserFactory {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            driver = CreateDriver("mozilla");
+            driver = CreateDriver("chrome");
         }
         return driver;
     }

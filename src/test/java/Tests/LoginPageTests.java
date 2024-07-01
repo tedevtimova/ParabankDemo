@@ -1,7 +1,6 @@
 package Tests;
 
 import Helpers.BaseClass;
-import Helpers.PageObjectsManager;
 import Pages.AccountPage;
 import Pages.LoginPage;
 import org.testng.Assert;
@@ -15,8 +14,8 @@ public class LoginPageTests extends BaseClass {
     @Test
 
     public void testSuccessfulLogin() {
-        loginPage = PageObjectsManager.getLoginPage();
-        accountPage = PageObjectsManager.getAccountPage();
+        loginPage = new LoginPage(driver);
+        accountPage = new AccountPage(driver);
         loginPage.fillInCredentials("tedevtimova112", "123456");
         loginPage.clickLogIn();
         Assert.assertEquals(accountPage.logOutLinkIsDisplayed(), true, "logout link is not displayed");

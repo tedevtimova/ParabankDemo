@@ -1,6 +1,7 @@
 package Tests;
 
 import Helpers.BaseClass;
+import Helpers.TestParameters;
 import Pages.BillPayApi;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -11,9 +12,10 @@ public class BillPayApiTest extends BaseClass {
 
     String accountId;
 
-    @Test
+    @Test //(dataProvider = "testParams")
 
     public void billPay() {
+        TestParameters testParameters = getTestParameters();
         accountId = AccountPageTests.accountId;
         System.out.println("Initial accountId: " + accountId);
         RestAssured.baseURI = "http://localhost:8081/parabank";

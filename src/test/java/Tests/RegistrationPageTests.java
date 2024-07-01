@@ -1,7 +1,7 @@
 package Tests;
 
 import Helpers.BaseClass;
-import Helpers.PageObjectsManager;
+import Helpers.TestParameters;
 import Pages.AccountPage;
 import Pages.RegistrationPage;
 import org.testng.Assert;
@@ -11,11 +11,12 @@ public class RegistrationPageTests extends BaseClass {
 
     RegistrationPage registrationPage;
     AccountPage accountPage;
+    TestParameters testParameters;
 
     @Test
 
     public void clickRegistrationLink() {
-        registrationPage = PageObjectsManager.getRegistrationPage();
+        registrationPage = new RegistrationPage(driver);
         registrationPage.clickRegister();
     }
 
@@ -23,6 +24,7 @@ public class RegistrationPageTests extends BaseClass {
 
     public void testFillInForm() {
 
+        testParameters = getTestParameters();
         registrationPage.fillFirstName(testParameters.firstName);
         registrationPage.fillLastName(testParameters.lastName);
         registrationPage.fillAddress(testParameters.address);
@@ -46,7 +48,8 @@ public class RegistrationPageTests extends BaseClass {
     @Test
 
     public void fillMatchingPasswordsAndRegister() {
-        accountPage = PageObjectsManager.getAccountPage();
+
+        accountPage = new AccountPage(driver);
         registrationPage.fillPassword(testParameters.password);
         registrationPage.fillConfirm(testParameters.confirmPasswordTwo);
         registrationPage.clickRegisterButton();

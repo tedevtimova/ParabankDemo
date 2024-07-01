@@ -1,23 +1,35 @@
 package Helpers;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class BaseClass {
 
-    public TestParameters testParameters;
+    private List<TestParameters> testParametersList;
+
     public static WebDriver driver;
+    private TestParameters testParameters;
 
     @BeforeClass
+    @Parameters("dataSet")
 
-    public void setUp() throws IOException {
-        testParameters = TestParameters.loadFromFile("C:\\Users\\TeodoraEvtimova\\Desktop\\parameters.json");
+    public void setUp(int dataSet) throws IOException {
+        String filePath = Paths.get("resources", "parameters.json").toString();
+        testParametersList = TestParameters.loadFromFile(filePath);
+        if (dataSet < testParametersList.size()) {
+            testParameters = testParametersList.get(dataSet);
+        } else {
+            throw new IndexOutOfBoundsException("Invalid data set index");
+        }
     }
 
+    public TestParameters getTestParameters() {
+        return testParameters;
+    }
 
     @BeforeSuite
 

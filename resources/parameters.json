@@ -1,0 +1,32 @@
+{
+  "parameterSets": [
+    {
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "address": "10, Test street",
+      "city": "Varna",
+      "state": "Varna District",
+      "zipCode": "9000",
+      "phone": "0847990876",
+      "ssn": "1239000",
+      "username": "tedevtimova382",
+      "password": "123456",
+      "confirmPasswordOne": "12345",
+      "confirmPasswordTwo": "123456"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "address": "123 Elm Street",
+      "city": "Sofia",
+      "state": "Sofia District",
+      "zipCode": "1000",
+      "phone": "0123456789",
+      "ssn": "987654321",
+      "username": "johndoe382",
+      "password": "abcdef",
+      "confirmPasswordOne": "abcde",
+      "confirmPasswordTwo": "abcdef"
+    }
+  ]
+}

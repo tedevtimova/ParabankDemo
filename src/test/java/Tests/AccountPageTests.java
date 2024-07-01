@@ -1,7 +1,6 @@
 package Tests;
 
 import Helpers.BaseClass;
-import Helpers.PageObjectsManager;
 import Pages.AccountPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,7 +14,8 @@ public class AccountPageTests extends BaseClass {
 
     @Test
     public void clickAccountManagerLink() {
-        accountPage = PageObjectsManager.getAccountPage();
+
+        accountPage = new AccountPage(driver);
         accountPage.clickAccountsOverview();
         Assert.assertEquals(accountPage.accountOverviewHeading(), true, "Account overview heading is not displayed");
     }
